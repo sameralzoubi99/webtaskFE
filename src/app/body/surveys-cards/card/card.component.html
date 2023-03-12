@@ -1,0 +1,23 @@
+<!-- <div class="card" style="width: 18rem;" [ngClass]="getStatusClass()" (click)="changeStatus()" (mouseenter)="onHover()"
+    (mouseleave)="onHover()"> -->
+<div class="card" style="width: 18rem;" [ngClass]="getStatusClass()" (mouseenter)="onHover()" (mouseleave)="onHover()">
+    <div class="card-body">
+        <div style="text-align: center;">
+            <span><i class="fa-3x" [ngClass]="getIconClass()"></i></span>
+            <br><br>
+            <h6>{{survey.isSelected}}</h6>
+            <h6 class="card-title">{{survey.SurveyName}}</h6>
+            <hr>
+            <select *ngIf="((periods?.length !== undefined && periods?.length !== null) && periods?.length !== 1)">
+                <option *ngFor="let period of periods">{{period.START_DATE | date:'dd/MM/yyyy'}} - {{period.END_DATE|
+                    date:'dd/MM/yyyy'}}
+                </option>
+            </select>
+            <label
+                *ngIf="((periods?.length !== undefined && periods?.length !== null) && periods?.length == 1)">{{periods[0].START_DATE
+                |
+                date:'dd/M/yyyy'}} - {{periods[0].END_DATE|
+                date:'dd/M/yyyy'}}</label>
+        </div>
+    </div>
+</div>

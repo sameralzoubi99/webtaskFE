@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>SURVEY:</h1>
+<div mat-dialog-content>
+    <br>
+    <p>Data to send back</p>
+    <label for="data">Data</label>
+    <input type="text" id="data" class="form-control" #surveyName value="{{data.SurveyName}}">
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="{SRV_ID: data.SRV_ID, SurveyName: surveyName.value}"
+        cdkFocusInitial>Ok</button>
+</div>

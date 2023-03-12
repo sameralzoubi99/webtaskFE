@@ -1,0 +1,40 @@
+<div class="container container-fluid">
+    <div class="row navbar ">
+        <div class="col">
+            <mat-tab-group (selectedTabChange)="changeSurveysType($event)">
+                <mat-tab label="Published">
+
+                </mat-tab>
+                <mat-tab label="Expired">
+
+                </mat-tab>
+                <mat-tab label="Closed">
+
+                </mat-tab>
+                <mat-tab label="All Surveys">
+
+                </mat-tab>
+            </mat-tab-group>
+
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <button [ngClass]="getButtonClass()" (click)="openDialog()">Go to Dashboard</button>
+                </div>
+                <div class="col">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col">
+                    <button class="btn btn-outline-success" type="">Filter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<app-surveys-cards (selected)="changeButtonStatus($event)"
+    [newSurveyName]="{SurveyName: dialogData.SurveyName, SRV_ID: dialogData.SRV_ID}"
+    [surveysType]="surveysTypeBody"></app-surveys-cards>
+
+<app-table-pagination></app-table-pagination>
