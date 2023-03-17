@@ -4,7 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { DialogData } from '../models/dialog-data.interface';
+import { Survey } from 'src/app/body/models/survey.interface';
 
 @Component({
   selector: 'app-dialog',
@@ -13,7 +13,7 @@ import { DialogData } from '../models/dialog-data.interface';
 export class Dialog {
   constructor(
     public dialogRef: MatDialogRef<Dialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: Survey,
     public dialog: MatDialog
   ) {}
 

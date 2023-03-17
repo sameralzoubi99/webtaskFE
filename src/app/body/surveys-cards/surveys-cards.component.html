@@ -1,8 +1,6 @@
-<div class="container">
-    <div class="row row-cols-4">
-        <div class="col" *ngFor="let survey of getFilteredSurvey() | async; let i = index">
-            <app-card [survey]="survey" (click)="selectCard(i)"></app-card>
-            <br>
-        </div>
+<div class="row row-cols-4">
+    <div class="col" *ngFor="let survey of surveys; let i = index">
+        <app-card [survey]="survey" (click)="selectCard(survey)"></app-card>
+        <br>
     </div>
 </div>

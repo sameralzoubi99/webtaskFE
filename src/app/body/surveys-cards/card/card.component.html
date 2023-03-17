@@ -5,7 +5,6 @@
         <div style="text-align: center;">
             <span><i class="fa-3x" [ngClass]="getIconClass()"></i></span>
             <br><br>
-            <h6>{{survey.isSelected}}</h6>
             <h6 class="card-title">{{survey.SurveyName}}</h6>
             <hr>
             <select *ngIf="((periods?.length !== undefined && periods?.length !== null) && periods?.length !== 1)">

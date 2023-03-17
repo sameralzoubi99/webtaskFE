@@ -11,5 +11,4 @@ export interface Survey {
   SURVEY_STATUS_AR: string;
   SURVEY_STATUS_EN: string;
   SurveyPeriods: string;
-  isSelected: boolean;
 }

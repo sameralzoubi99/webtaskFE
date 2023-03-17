@@ -7,6 +7,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="{SRV_ID: data.SRV_ID, SurveyName: surveyName.value}"
-        cdkFocusInitial>Ok</button>
+    <button mat-button [mat-dialog-close]="{survey: data, SurveyName: surveyName.value}" cdkFocusInitial>Ok</button>
 </div>

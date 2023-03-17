@@ -1,53 +1,30 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { Dialog } from './dialog/dialog.component';
-import { DialogData } from './models/dialog-data.interface';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+// import { Dialog } from './dialog/dialog.component';
+import { Survey } from './models/survey.interface';
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.sass'],
 })
-export class BodyComponent {
-  dialogData = {} as DialogData;
+export class BodyComponent implements OnInit {
+  filteredSurveys!: Survey[];
+  isViewGrid: boolean = true;
 
-  surveysTypeBody = 'Published';
+  constructor(private dataService: DataService) {}
 
-  constructor(public dialog: MatDialog) {
-    this.dialogData.status = false;
-  }
-
-  getButtonClass() {
-    return this.dialogData.status
-      ? 'btn btn-success'
-      : 'btn btn-secondary disabled';
-  }
-
-  changeButtonStatus(card: DialogData) {
-    this.dialogData.status = card.status;
-    this.dialogData.SurveyName = card.SurveyName;
-    this.dialogData.SRV_ID = card.SRV_ID;
-  }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(Dialog, {
-      data: {
-        status: this.dialogData.status,
-        SurveyName: this.dialogData.SurveyName,
-        SRV_ID: this.dialogData.SRV_ID,
+  ngOnInit() {
+    this.dataService.getSurveys().subscribe({
+      next: (result) => {
+        this.dataService.surveys$.next(result[0]);
+        this.dataService.surveys = result[0];
       },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      this.dialogData.SurveyName = result.SurveyName;
-      this.dialogData.SRV_ID = result.SRV_ID;
+      error: () => {},
     });
   }
 
-  changeSurveysType(type: MatTabChangeEvent) {
-    // console.log(type.tab.textLabel);
-    this.surveysTypeBody = type.tab.textLabel;
+  changeView() {
+    this.isViewGrid = !this.isViewGrid;
   }
 }

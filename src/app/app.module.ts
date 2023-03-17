@@ -11,19 +11,21 @@ import { CardComponent } from './body/surveys-cards/card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
-// import {
-//   MatDialog,
-//   MAT_DIALOG_DATA,
-//   MatDialogRef,
-// } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Dialog } from './body/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablePaginationComponent } from './body/table-pagination/table-pagination.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MaterialExampleModule } from './material.module';
+import { FilterComponent } from './body/filter/filter.component';
+import { DateComponent } from './body/filter/date/date.component';
+import { SearchComponent } from './body/filter/search/search.component';
+import { TabsComponent } from './body/filter/tabs/tabs.component';
+import { GoToDashboardComponent } from './body/filter/go-to-dashboard/go-to-dashboard.component';
+import { Dialog } from './body/filter/go-to-dashboard/dialog/dialog.component';
+import { Story2Component } from './story2/story2.component';
+import { ChangePasswordComponent } from './story2/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,13 @@ import { MaterialExampleModule } from './material.module';
     CardComponent,
     Dialog,
     TablePaginationComponent,
+    FilterComponent,
+    DateComponent,
+    SearchComponent,
+    TabsComponent,
+    GoToDashboardComponent,
+    Story2Component,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +57,7 @@ import { MaterialExampleModule } from './material.module';
     FormsModule,
     MatNativeDateModule,
     MaterialExampleModule,
+    ReactiveFormsModule,
     ReactiveFormsModule,
   ],
   providers: [],

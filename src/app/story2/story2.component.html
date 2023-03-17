@@ -1,0 +1,64 @@
+<!-- <div class="container">
+    <h2>Registration Form</h2>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="personalDetails">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" formControlName="firstName"><br>
+            <div>
+                <small style="color: red"
+                    *ngIf="reactiveForm.get('personalDetails.firstName')?.errors?.['required'] && reactiveForm.get('personalDetails.firstName')!.touched">First
+                    name is required field</small>
+                <small style="color: red"
+                    *ngIf="reactiveForm.get('personalDetails.firstName')?.errors?.['noSpaceAllowed'] && reactiveForm.get('personalDetails.firstName')!.touched">First
+                    name cannot
+                    contain a space.</small>
+            </div>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" formControlName="lastName"><br>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email"><br>
+            <div>
+                <span style="color: red"
+                    *ngIf="!reactiveForm.get('personalDetails.email')!.valid && reactiveForm.get('personalDetails.email')!.touched">The
+                    email you entered
+                    not a valid
+                    email</span>
+            </div>
+        </div>
+
+        <label for="country">Country</label>
+        <select id="country" formControlName="country">
+            <option value="jordan">Jordan</option>
+            <option value="syria">Syria</option>
+            <option value="uae">UAE</option>
+        </select><br>
+
+        <label for="gender">Gender: </label>
+        <input type="radio" name="male" value="male" id="male" formControlName="gender">
+        <label for="male">Male</label>
+        <input type="radio" id="female" value="female" formControlName="gender">
+        <label for="female">Female</label>
+        <input type="radio" id="other" value="other" formControlName="gender">
+        <label for="other">Other</label><br><br>
+
+        <label><i>(Optional)</i></label>
+        <div class="form-inline">
+            <label><input type="checkbox" value="sports" formControlName="hobbies"> Sports</label>
+            <label><input type="checkbox" value="movies" formControlName="hobbies"> Movies</label>
+            <label><input type="checkbox" value="music" formControlName="hobbies"> Music</label>
+        </div>
+        <br><br>
+
+        <div formArrayName="skills">
+            <ng-container *ngFor="let skill of skills">
+                <input type="text" placeholder="Add skill.."><br><br>
+            </ng-container>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div> -->
+
+<app-change-password></app-change-password>

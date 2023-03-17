@@ -1,40 +1,14 @@
-<div class="container container-fluid">
-    <div class="row navbar ">
-        <div class="col">
-            <mat-tab-group (selectedTabChange)="changeSurveysType($event)">
-                <mat-tab label="Published">
+<div class="container">
+    <app-filter></app-filter>
+    <ul>
+        <li><i (click)="changeView()" class="fa-solid fa-grip"></i></li>
+        <li><i (click)="changeView()" class="fa-solid fa-rectangle-list"></i></li>
+    </ul>
 
-                </mat-tab>
-                <mat-tab label="Expired">
-
-                </mat-tab>
-                <mat-tab label="Closed">
-
-                </mat-tab>
-                <mat-tab label="All Surveys">
-
-                </mat-tab>
-            </mat-tab-group>
-
-        </div>
-        <div class="col">
-            <div class="row">
-                <div class="col">
-                    <button [ngClass]="getButtonClass()" (click)="openDialog()">Go to Dashboard</button>
-                </div>
-                <div class="col">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </div>
-                <div class="col">
-                    <button class="btn btn-outline-success" type="">Filter</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <app-surveys-cards [hidden]="!isViewGrid">
+        <!-- (selected)="changeButtonStatus($event)" -->
+    </app-surveys-cards>
+    <app-table-pagination [hidden]="isViewGrid">
+        <!-- (selected)="changeButtonStatus($event)" -->
+    </app-table-pagination>
 </div>
-<br>
-<app-surveys-cards (selected)="changeButtonStatus($event)"
-    [newSurveyName]="{SurveyName: dialogData.SurveyName, SRV_ID: dialogData.SRV_ID}"
-    [surveysType]="surveysTypeBody"></app-surveys-cards>
-
-<app-table-pagination></app-table-pagination>
